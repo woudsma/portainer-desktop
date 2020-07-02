@@ -3,8 +3,13 @@
 > This project is not affiliated with the Portainer project.  
 > See [github.com/portainer/portainer](https://github.com/portainer/portainer) for the official Portainer project.
 
-**WIP**: Using Electron to render the Portainer app as desktop application.  
-Expect things to be broken.
+Using Electron to render the Portainer app as desktop application.
+
+### Note
+
+**Work In Progress**, expect things to be broken.
+
+### Usage
 
 ```sh
 # Installation
