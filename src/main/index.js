@@ -14,6 +14,11 @@ const {
 } = process.env;
 
 const isDevelopment = NODE_ENV !== "production";
+const dockerOptions = {
+  image: DOCKER_IMAGE_NAME,
+  name: DOCKER_CONTAINER_NAME,
+};
+
 let mainWindow;
 
 const createMainWindow = () => {
@@ -68,13 +73,13 @@ app.on("window-all-closed", () => {
 app.on("activate", () => {
   // on macOS it is common to re-create a window even after all windows have been closed
   if (mainWindow === null) {
-    initDocker({ image: DOCKER_IMAGE_NAME, name: DOCKER_CONTAINER_NAME });
+    initDocker(dockerOptions);
     mainWindow = createMainWindow();
   }
 });
 
 // create main BrowserWindow when electron is ready
 app.on("ready", () => {
-  initDocker({ image: DOCKER_IMAGE_NAME, name: DOCKER_CONTAINER_NAME });
+  initDocker(dockerOptions);
   mainWindow = createMainWindow();
 });
